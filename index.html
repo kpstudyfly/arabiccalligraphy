@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arabic Calligraphy Converter - Free Stylish Font | Arabic Text Generator</title>
+    <meta name="description" content="Convert text to beautiful Arabic calligraphy online. Professional Arabic calligraphy generator with 20+ styles, customization options, and instant download. Free Arabic text converter tool.">
+    <meta name="keywords" content="Arabic calligraphy, Arabic text generator, Islamic calligraphy, Arabic font converter, calligraphy tool, Arabic writing">
+    <meta name="author" content="Arabic Calligraphy Converter">
+    <meta property="og:title" content="Arabic Calligraphy Converter - Professional Online Tool">
+    <meta property="og:description" content="Create stunning Arabic calligraphy with our professional online converter. 20+ styles, customization options, and instant download.">
+    <meta property="og:type" content="website">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Arabic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Reem+Kufi:wght@400;700&family=Cairo:wght@300;400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+   <style>
+    :root {
+        --primary-color: #2c5aa0;
+        --secondary-color: #f39c12;
+        --accent-color: #e74c3c;
+        --dark-color: #2c3e50;
+        --light-color: #ecf0f1;
+        --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    body {
+        font-family: 'Cairo', sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 1px;
+    }
+
+    .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero-section {
+        background: var(--gradient-1);
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .tool-container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 1px 40px rgba(0,0,0,0.1);
+        margin: -50px auto 50px;
+        padding: 40px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 1px 0;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .calligraphy-preview {
+        background: #f8f9fa;
+        border: 2px dashed #dee2e6;
+        border-radius: 15px;
+        min-height: 200px;
+        padding: 30px;
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .calligraphy-text {
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 1.4;
+        transition: all 0.3s ease;
+        word-wrap: break-word;
+        max-width: 100%;
+    }
+
+    .control-panel {
+        background: #f8f9fa;
+        border-radius: 15px;
+        padding: 25px;
+        margin: 20px 0;
+    }
+
+    .color-picker {
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn-custom {
+        background: var(--gradient-1);
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin: 5px;
+    }
+
+    .btn-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        color: white;
+    }
+
+    .btn-secondary-custom {
+        background: var(--gradient-2);
+    }
+
+    .btn-accent-custom {
+        background: var(--gradient-3);
+    }
+
+    .style-selector {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .style-option {
+        background: white;
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .style-option:hover, .style-option.active {
+        border-color: var(--primary-color);
+        background: var(--primary-color);
+        color: white;
+        transform: scale(1.05);
+    }
+
+    .blog-section {
+        background: white;
+        padding: 60px 0;
+    }
+
+    .blog-content {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+    }
+
+    .blog-content h2 {
+        color: var(--primary-color);
+        margin: 30px 0 20px;
+        font-weight: 700;
+    }
+
+    .blog-content h3 {
+        color: var(--dark-color);
+        margin: 25px 0 15px;
+        font-weight: 600;
+    }
+
+    .feature-list {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .feature-list li {
+        margin: 10px 0;
+        padding-left: 10px;
+    }
+
+    .animation-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .background-patterns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+        margin: 15px 0;
+    }
+
+    .pattern-option {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    .pattern-option:hover, .pattern-option.active {
+        border-color: var(--primary-color);
+        transform: scale(1.1);
+    }
+
+    .footer {
+        background: var(--dark-color);
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+    }
+
+    /* ✅ MOBILE SPACING FIX */
+    @media (max-width: 768px) {
+        .calligraphy-text {
+            font-size: 32px;
+        }
+
+        .tool-container {
+            margin: -30px 0 30px !important;
+            padding: 20px 15px !important;
+        }
+
+        .container {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        .calligraphy-preview {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        .col-lg-8, .col-lg-4 {
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+
+        .hero-section {
+            padding: 60px 0;
+        }
+    }
+
+    /* Animations */
+    .fade-in {
+        animation: fadeIn 0.5s ease-in;
+    }
+
+    .slide-in {
+        animation: slideIn 0.5s ease-out;
+    }
+
+    .bounce {
+        animation: bounce 1s infinite;
+    }
+
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+
+    .rotate {
+        animation: rotate 3s linear infinite;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-30px); }
+        60% { transform: translateY(-15px); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="fas fa-pen-nib text-primary"></i> Arabic Calligraphy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/about.html">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact.html">Contact us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/pravicy.html">Pravicy Policy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/terms.html">Terms and Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Arabic Calligraphy Converter</h1>
+            <p class="lead mb-4">Change your text into beautiful Arabic calligraphy style with our professional Arabic font calligraphy generator online tool.</p>
+            <p class="mb-4">20 + Styles • Full Customization Options • Mobile Friendly Tool • Instant Download in Images</p>
+            <a href="#tool" class="btn btn-custom btn-lg"><i class="fas fa-arrow-down"></i> Start Creating</a>
+        </div>
+    </section>
+
+    <!-- Main Tool -->
+    <section id="tool" class="py-5">
+        <div class="container">
+            <div class="tool-container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h2 class="text-center mb-4"><i class="fas fa-palette"></i> Calligraphy Generator</h2>
+                        
+                        <!-- Text Input -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Enter Your Text:</label>
+                            <textarea id="inputText" class="form-control form-control-lg" rows="3" placeholder="Type your text here... (Arabic, English, or any language)">مرحبا بكم في محول الخط العربي</textarea>
+                        </div>
+
+                        <!-- Preview Area -->
+                        <div class="calligraphy-preview" id="previewArea">
+                            <div class="calligraphy-text" id="calligraphyText">مرحبا بكم في محول الخط العربي</div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="text-center mb-4">
+                            <button class="btn btn-custom" onclick="copyToClipboard()"><i class="fas fa-copy"></i> Copy Text</button>
+                            <button class="btn btn-secondary-custom" onclick="downloadAsImage()"><i class="fas fa-download"></i> Download PNG</button>
+                            <button class="btn btn-accent-custom" onclick="shareCalligraphy()"><i class="fas fa-share"></i> Share</button>
+                            <button class="btn btn-custom" onclick="printCalligraphy()"><i class="fas fa-print"></i> Print</button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <!-- Control Panel -->
+                        <div class="control-panel">
+                            <h5><i class="fas fa-sliders-h"></i> Customization</h5>
+                            
+                            <!-- Font Style -->
+                            <div class="mb-3">
+                                <label class="form-label">Font Style:</label>
+                                <select id="fontStyle" class="form-select" onchange="updateStyle()">
+                                    <option value="Amiri">Amiri (Traditional)</option>
+                                    <option value="Scheherazade New">Scheherazade (Classic)</option>
+                                    <option value="Reem Kufi">Reem Kufi (Modern)</option>
+                                    <option value="Cairo">Cairo (Clean)</option>
+                                    <option value="Tajawal">Tajawal (Contemporary)</option>
+                                    <option value="serif">Serif (Elegant)</option>
+                                    <option value="cursive">Cursive (Artistic)</option>
+                                </select>
+                            </div>
+
+                            <!-- Font Size -->
+                            <div class="mb-3">
+                                <label class="form-label">Font Size: <span id="sizeValue">48px</span></label>
+                                <input type="range" id="fontSize" class="form-range" min="16" max="120" value="48" onchange="updateStyle()">
+                            </div>
+
+                            <!-- Text Color -->
+                            <div class="mb-3">
+                                <label class="form-label">Text Color:</label>
+                                <div class="d-flex gap-2 mb-2">
+                                    <input type="color" id="textColor" class="color-picker" value="#000000" onchange="updateStyle()">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="setColor('#000000')">Black</button>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="setColor('#2c5aa0')">Blue</button>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="setColor('#e74c3c')">Red</button>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="setColor('#27ae60')">Green</button>
+                                </div>
+                            </div>
+
+                            <!-- Background Color -->
+                            <div class="mb-3">
+                                <label class="form-label">Background:</label>
+                                <div class="d-flex gap-2 mb-2">
+                                    <input type="color" id="bgColor" class="color-picker" value="#f8f9fa" onchange="updateStyle()">
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="setBgColor('transparent')">None</button>
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="setBgColor('#ffffff')">White</button>
+                                </div>
+                            </div>
+
+                            <!-- Text Alignment -->
+                            <div class="mb-3">
+                                <label class="form-label">Alignment:</label>
+                                <div class="btn-group w-100" role="group">
+                                    <button class="btn btn-outline-primary" onclick="setAlignment('left')"><i class="fas fa-align-left"></i></button>
+                                    <button class="btn btn-outline-primary active" onclick="setAlignment('center')"><i class="fas fa-align-center"></i></button>
+                                    <button class="btn btn-outline-primary" onclick="setAlignment('right')"><i class="fas fa-align-right"></i></button>
+                                </div>
+                            </div>
+
+                            <!-- Text Effects -->
+                            <div class="mb-3">
+                                <label class="form-label">Text Effects:</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="boldText" onchange="updateStyle()">
+                                    <label class="form-check-label" for="boldText">Bold</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="italicText" onchange="updateStyle()">
+                                    <label class="form-check-label" for="italicText">Italic</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="shadowText" onchange="updateStyle()">
+                                    <label class="form-check-label" for="shadowText">Text Shadow</label>
+                                </div>
+                            </div>
+
+                            <!-- Animation -->
+                            <div class="mb-3">
+                                <label class="form-label">Animation:</label>
+                                <select id="animation" class="form-select" onchange="updateAnimation()">
+                                    <option value="">None</option>
+                                    <option value="fade-in">Fade In</option>
+                                    <option value="slide-in">Slide In</option>
+                                    <option value="bounce">Bounce</option>
+                                    <option value="pulse">Pulse</option>
+                                    <option value="rotate">Rotate</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Style Presets -->
+                <div class="mt-4">
+                    <h5><i class="fas fa-magic"></i> Quick Styles</h5>
+                    <div class="style-selector">
+                        <div class="style-option" onclick="applyPreset('classic')">
+                            <i class="fas fa-mosque"></i>
+                            <div>Classic</div>
+                        </div>
+                        <div class="style-option" onclick="applyPreset('modern')">
+                            <i class="fas fa-city"></i>
+                            <div>Modern</div>
+                        </div>
+                        <div class="style-option" onclick="applyPreset('elegant')">
+                            <i class="fas fa-crown"></i>
+                            <div>Elegant</div>
+                        </div>
+                        <div class="style-option" onclick="applyPreset('artistic')">
+                            <i class="fas fa-paint-brush"></i>
+                            <div>Artistic</div>
+                        </div>
+                        <div class="style-option" onclick="applyPreset('bold')">
+                            <i class="fas fa-bold"></i>
+                            <div>Bold</div>
+                        </div>
+                        <div class="style-option" onclick="applyPreset('minimal')">
+                            <i class="fas fa-minus"></i>
+                            <div>Minimal</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Background Patterns -->
+                <div class="mt-4">
+                    <h5><i class="fas fa-image"></i> Background Patterns</h5>
+                    <div class="background-patterns">
+                        <div class="pattern-option" style="background: linear-gradient(45deg, #667eea, #764ba2)" onclick="setBackgroundPattern('gradient1')"></div>
+                        <div class="pattern-option" style="background: linear-gradient(45deg, #f093fb, #f5576c)" onclick="setBackgroundPattern('gradient2')"></div>
+                        <div class="pattern-option" style="background: linear-gradient(45deg, #4facfe, #00f2fe)" onclick="setBackgroundPattern('gradient3')"></div>
+                        <div class="pattern-option" style="background: linear-gradient(45deg, #43e97b, #38f9d7)" onclick="setBackgroundPattern('gradient4')"></div>
+                        <div class="pattern-option" style="background: linear-gradient(45deg, #fa709a, #fee140)" onclick="setBackgroundPattern('gradient5')"></div>
+                        <div class="pattern-option" style="background: #ffffff; border: 1px solid #ddd" onclick="setBackgroundPattern('white')"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-4 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">🌟 20+ Amazing Features</h2>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-font fa-2x text-primary mb-2"></i>
+                        <h5>Multiple Font Styles</h5>
+                        <p>Choose from 7+ beautiful Arabic and decorative fonts</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-palette fa-3x text-primary mb-3"></i>
+                        <h5>Color Customization</h5>
+                        <p>Full color control for text and background</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                        <h5>Responsive Design</h5>
+                        <p>Works perfectly on all devices and screen sizes</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-download fa-3x text-primary mb-3"></i>
+                        <h5>Instant Download</h5>
+                        <p>Download your calligraphy as high-quality PNG images</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-magic fa-3x text-primary mb-3"></i>
+                        <h5>Animation Effects</h5>
+                        <p>Add beautiful animations to your calligraphy</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <i class="fas fa-share-alt fa-3x text-primary mb-3"></i>
+                        <h5>Easy Sharing</h5>
+                        <p>Share your creations on social media instantly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="blog-content">
+                <h1 class="text-center mb-5">How to Use Stylish Arabic Calligraphy Converter Tool</h1>
+                
+                <h2>What is Arabic Calligraphy?</h2>
+                <p style="text-align: justify;">Arabic calligraphy is the artistic practice of handwriting and calligraphy based on the Arabic alphabet. It is a revered art form in the Islamic world and is considered one of the highest forms of Islamic art. Our Arabic Calligraphy Converter brings this ancient art form to the digital age, allowing anyone to create beautiful calligraphic text instantly.</p>
+
+               <center>  <h2>Why Use Arabic Calligraphy Converter?</h2></center>
+                <div class="feature-list">
+                    <ul>
+                        <li style="text-align: justify;"><strong>Professional Quality:</strong> Generate high-quality calligraphy suitable for professional use</li></ul><ul>
+                        <li style="text-align: justify;"><strong>User-Friendly:</strong> No design experience required - anyone can create beautiful calligraphy</li></ul><ul>
+                        <li style="text-align: justify;"><strong>Instant Results:</strong> See your calligraphy in real-time as you type</li></ul><ul>
+                        <li style="text-align: justify;"><strong>Multiple Languages:</strong> Supports Arabic, English, and other languages</li></ul><ul>
+                        <li style="text-align: justify;"><strong>Free to Use:</strong> No registration or payment required</li></ul><ul>
+                        <li style="text-align: justify;"><strong>Mobile Optimized:</strong> Works perfectly on smartphones and tablets</li></ul></div>
+                
+                <h3 style="text-align: center;">Enter Your Text</h3>
+                <p style="text-align: justify;">Start by typing or pasting your text in the input area. You can use Arabic text, English text, or any other language. The tool will automatically display your text in the preview area with the default calligraphy style.</p><p style="text-align: justify;"><br>
+</p>
+
+                <h3 style="text-align: center;">Choose Your Font Style</h3>
+                <p style="text-align: justify;">Select from our collection of beautiful fonts:</p>
+                <ul>
+                    <li style="text-align: justify;"><strong>Amiri:</strong> Traditional Arabic calligraphy style</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Scheherazade:</strong> Classic and elegant appearance</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Reem Kufi:</strong> Modern and clean design</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Cairo:</strong> Contemporary and readable</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Tajawal:</strong> Professional and versatile</li>
+                </ul>
+
+                <h3 style="text-align: center;">Customize Appearance</h3>
+                <p>Use our comprehensive customization options:</p>
+                <ul>
+                    <li style="text-align: justify;"><strong>Font Size:</strong> Adjust from 16px to 120px using the slider</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Colors:</strong> Choose custom colors for text and background</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Alignment:</strong> Left, center, or right alignment</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Effects:</strong> Add bold, italic, or shadow effects</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Animation:</strong> Apply dynamic animations like fade-in, bounce, or pulse</li>
+                </ul>
+
+                <h3 style="text-align: center;">Apply Quick Styles</h3>
+                <p>Save time with our preset styles:</p>
+                <ul>
+                    <li><strong>Classic:</strong> Traditional Islamic calligraphy appearance</li></ul><ul>
+                    <li><strong>Modern:</strong> Contemporary design with clean lines</li></ul><ul>
+                    <li><strong>Elegant:</strong> Sophisticated and refined styling</li></ul><ul>
+                    <li><strong>Artistic:</strong> Creative and expressive design</li></ul><ul>
+                    <li><strong>Bold:</strong> Strong and impactful aappearances</li></ul><ul>
+                    <li><strong>Minimal:</strong> Clean and simple design</li>
+                </ul>
+
+                <h3 style="text-align: center;">Choose Background Patterns</h3>
+                <p style="text-align: justify;">Enhance your calligraphy with beautiful background gradients or keep it simple with a solid color or transparent background.</p><p style="text-align: justify;"><br>
+</p>
+
+                <h3 style="text-align: center;">Download and Share</h3>
+                <p style="text-align: justify;">Once you're satisfied with your creation:</p>
+                <ul>
+                    <li style="text-align: justify;"><strong>Copy:</strong> Copy the text to clipboard for pasting elsewhere</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Download:</strong> Save as a high-quality PNG image</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Share:</strong> Share directly on social media platforms</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Print:</strong> Print your calligraphy for physical use</li>
+                </ul>
+
+                <h2 style="text-align: center;">20+ Features List</h2>
+                <div class="feature-list">
+                    <ol>
+                        <li style="text-align: justify;">Real-time text preview</li>
+                        <li style="text-align: justify;">7+ Arabic and decorative fonts</li>
+                        <li style="text-align: justify;">Custom font size adjustment (16-120px)</li>
+                        <li style="text-align: justify;">Full color customization</li>
+                        <li style="text-align: justify;">Background color and pattern options</li>
+                        <li style="text-align: justify;">Text alignment controls</li>
+                        <li style="text-align: justify;">Bold text effect</li>
+                        <li style="text-align: justify;">Italic text effect</li>
+                        <li style="text-align: justify;">Text shadow effect</li>
+                        <li style="text-align: justify;">5 animation effects</li>
+                        <li style="text-align: justify;">6 quick style presets</li>
+                        <li style="text-align: justify;">6 background gradient patterns</li>
+                        <li style="text-align: justify;">Copy to clipboard function</li>
+                        <li style="text-align: justify;">PNG image download</li>
+                        <li style="text-align: justify;">Social media sharing</li>
+                        <li style="text-align: justify;">Print functionality</li>
+                        <li style="text-align: justify;">Responsive mobile design</li>
+                        <li style="text-align: justify;">Multi-language support</li>
+                        <li style="text-align: justify;">SEO-optimized interface</li>
+                        <li style="text-align: justify;">Professional quality output</li>
+                        <li style="text-align: justify;">No registration required</li>
+                        <li style="text-align: justify;">Free to use</li>
+                        <li style="text-align: justify;">Cross-browser compatibility</li>
+                        <li style="text-align: justify;">Instant loading</li>
+                        <li style="text-align: justify;">User-friendly interface</li>
+                    </ol>
+                </div>
+
+                <h2 style="text-align: center;">Tips for Best Results</h2>
+                <ul>
+                    <li style="text-align: justify;"><strong>Keep it Simple:</strong> Shorter texts often look more elegant in calligraphy</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Choose Appropriate Colors:</strong> High contrast between text and background improves readability</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Test Different Fonts:</strong> Each font has its own character - experiment to find the perfect match</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Consider Your Purpose:</strong> Formal documents might need different styling than social media posts</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Use Animations Sparingly:</strong> Animations are great for digital use but not suitable for print</li>
+                </ul>
+
+                <h2 style="text-align: center;">Common Use Cases</h2>
+                <ol><li>Islamic greeting cards and invitations</li>
+                    <li>Social media posts and stories</li>
+                    <li>Website headers and banners</li>
+                    <li>Religious quotes and verses</li>
+                    <li>Personal artwork and decoration</li>
+                    <li>Educational materials</li>
+                    <li>Business logos and branding</li>
+                    <li>Print materials and posters</li></ol>
+
+                <h2>Technical Specifications</h2>
+                <ul>
+                    <li style="text-align: justify;"><strong>Output Format:</strong> PNG images with transparent background support</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Resolution:</strong> High-quality output suitable for print and digital use</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Browser Support:</strong> Works on all modern browsers</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Mobile Compatibility:</strong> Fully responsive desig</li></ul><ul>
+                    <li style="text-align: justify;"><strong>Loading Speed:</strong> Instant preview updates</li>
+                </ul>
+
+                <h2 style="text-align: center;">Frequently Asked Questions</h2>
+                
+                <h3 style="text-align: justify;">Is this tool free to use?</h3>
+                <p style="text-align: justify;">Yes, our Arabic Calligraphy Converter is completely free to use. No registration, subscription, or payment is required.</p>
+
+                <h3 style="text-align: justify;">Can I use the generated calligraphy commercially?</h3>
+                <p style="text-align: justify;">Yes, you can use the calligraphy you create for both personal and commercial purposes.</p>
+
+                <h3 style="text-align: justify;">What file formats are supported for download?</h3>
+                <p style="text-align: justify;">Currently, we support PNG format downloads, which provides high quality with transparency support.</p>
+
+                <h3 style="text-align: justify;">Does it work on mobile devices?</h3>
+                <p style="text-align: justify;">Our tool is fully responsive and works perfectly on smartphones and tablets.</p>
+
+                <h3 style="text-align: justify;">Can I save my work and come back later?</h3>
+                <p style="text-align: justify;">The tool doesn't save your work automatically, but you can bookmark the page and your settings will be preserved in your browser session.</p>
+
+                <h2 style="text-align: center;">Conclusion</h2>
+                <p style="text-align: justify;">Our Arabic Calligraphy Converter is the perfect tool for anyone looking to create beautiful, professional-quality calligraphy without any design experience. With over 20 features, responsive design, and instant results, it's the most comprehensive free calligraphy tool available online. Whether you're creating content for social media, designing invitations, or working on a professional project, our tool provides everything you need to create stunning Arabic calligraphy.</p>
+
+                <p style="text-align: justify;">Start creating your beautiful calligraphy today and discover the endless possibilities of digital Arabic art!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-pen-nib"></i> Arabic Calligraphy Converter</h5>
+                    <p>Create beautiful Arabic calligraphy with our professional online tool. Free, easy to use, and perfect for all your design needs.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Contact & Support</h5>
+                    <p><i class="fas fa-envelope"></i> kpstudyfly@gmail.com</p>
+                    <p><i class="fas fa-globe"></i> Available in multiple languages</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 Arabic Calligraphy Converter. All rights reserved. | Made with ❤️ for Arabic Art Lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Initialize the tool
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStyle();
+            
+            // Auto-update text as user types
+            document.getElementById('inputText').addEventListener('input', function() {
+                document.getElementById('calligraphyText').textContent = this.value || 'مرحبا بكم في محول الخط العربي';
+            });
+        });
+
+        // Update calligraphy style
+        function updateStyle() {
+            const text = document.getElementById('calligraphyText');
+            const fontStyle = document.getElementById('fontStyle').value;
+            const fontSize = document.getElementById('fontSize').value;
+            const textColor = document.getElementById('textColor').value;
+            const bgColor = document.getElementById('bgColor').value;
+            const boldText = document.getElementById('boldText').checked;
+            const italicText = document.getElementById('italicText').checked;
+            const shadowText = document.getElementById('shadowText').checked;
+            
+            // Update size display
+            document.getElementById('sizeValue').textContent = fontSize + 'px';
+            
+            // Apply styles
+            text.style.fontFamily = fontStyle;
+            text.style.fontSize = fontSize + 'px';
+            text.style.color = textColor;
+            text.style.fontWeight = boldText ? 'bold' : 'normal';
+            text.style.fontStyle = italicText ? 'italic' : 'normal';
+            text.style.textShadow = shadowText ? '2px 2px 4px rgba(0,0,0,0.3)' : 'none';
+            
+            // Update background
+            const previewArea = document.getElementById('previewArea');
+            if (bgColor !== 'transparent') {
+                previewArea.style.background = bgColor;
+            }
+        }
+
+        // Set predefined colors
+        function setColor(color) {
+            document.getElementById('textColor').value = color;
+            updateStyle();
+        }
+
+        function setBgColor(color) {
+            if (color === 'transparent') {
+                document.getElementById('previewArea').style.background = 'transparent';
+            } else {
+                document.getElementById('bgColor').value = color;
+                updateStyle();
+            }
+        }
+
+        // Set text alignment
+        function setAlignment(align) {
+            document.getElementById('calligraphyText').style.textAlign = align;
+            
+            // Update button states
+            document.querySelectorAll('.btn-group .btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Apply animation
+        function updateAnimation() {
+            const text = document.getElementById('calligraphyText');
+            const animation = document.getElementById('animation').value;
+            
+            // Remove existing animation classes
+            text.className = 'calligraphy-text';
+            
+            if (animation) {
+                text.classList.add(animation);
+            }
+        }
+
+        // Apply preset styles
+        function applyPreset(preset) {
+            const presets = {
+                classic: {
+                    font: 'Amiri',
+                    size: 56,
+                    color: '#2c5aa0',
+                    bg: '#f8f9fa',
+                    bold: true,
+                    shadow: true
+                },
+                modern: {
+                    font: 'Cairo',
+                    size: 48,
+                    color: '#2c3e50',
+                    bg: '#ffffff',
+                    bold: false,
+                    shadow: false
+                },
+                elegant: {
+                    font: 'Scheherazade New',
+                    size: 52,
+                    color: '#8e44ad',
+                    bg: '#f4f4f4',
+                    bold: false,
+                    shadow: true
+                },
+                artistic: {
+                    font: 'cursive',
+                    size: 60,
+                    color: '#e74c3c',
+                    bg: 'linear-gradient(45deg, #f093fb, #f5576c)',
+                    bold: true,
+                    shadow: true
+                },
+                bold: {
+                    font: 'Reem Kufi',
+                    size: 64,
+                    color: '#000000',
+                    bg: '#ffffff',
+                    bold: true,
+                    shadow: false
+                },
+                minimal: {
+                    font: 'Tajawal',
+                    size: 40,
+                    color: '#555555',
+                    bg: 'transparent',
+                    bold: false,
+                    shadow: false
+                }
+            };
+            
+            const style = presets[preset];
+            if (style) {
+                document.getElementById('fontStyle').value = style.font;
+                document.getElementById('fontSize').value = style.size;
+                document.getElementById('textColor').value = style.color;
+                document.getElementById('boldText').checked = style.bold;
+                document.getElementById('shadowText').checked = style.shadow;
+                
+                if (style.bg.startsWith('linear-gradient')) {
+                    document.getElementById('previewArea').style.background = style.bg;
+                } else if (style.bg === 'transparent') {
+                    setBgColor('transparent');
+                } else {
+                    document.getElementById('bgColor').value = style.bg;
+                }
+                
+                updateStyle();
+            }
+            
+            // Update active state
+            document.querySelectorAll('.style-option').forEach(opt => opt.classList.remove('active'));
+            event.target.closest('.style-option').classList.add('active');
+        }
+
+        // Set background patterns
+        function setBackgroundPattern(pattern) {
+            const previewArea = document.getElementById('previewArea');
+            const patterns = {
+                gradient1: 'linear-gradient(45deg, #667eea, #764ba2)',
+                gradient2: 'linear-gradient(45deg, #f093fb, #f5576c)',
+                gradient3: 'linear-gradient(45deg, #4facfe, #00f2fe)',
+                gradient4: 'linear-gradient(45deg, #43e97b, #38f9d7)',
+                gradient5: 'linear-gradient(45deg, #fa709a, #fee140)',
+                white: '#ffffff'
+            };
+            
+            previewArea.style.background = patterns[pattern];
+            
+            // Update active state
+            document.querySelectorAll('.pattern-option').forEach(opt => opt.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Copy to clipboard
+        function copyToClipboard() {
+            const text = document.getElementById('calligraphyText').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Text copied to clipboard!', 'success');
+            }).catch(() => {
+                showNotification('Failed to copy text', 'error');
+            });
+        }
+
+        // Download as image
+        function downloadAsImage() {
+            const element = document.getElementById('previewArea');
+            
+            // Create canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size
+            canvas.width = element.offsetWidth * 2;
+            canvas.height = element.offsetHeight * 2;
+            
+            // Scale for high resolution
+            ctx.scale(2, 2);
+            
+            // Get computed styles
+            const computedStyle = window.getComputedStyle(element);
+            const textElement = document.getElementById('calligraphyText');
+            const textStyle = window.getComputedStyle(textElement);
+            
+            // Draw background
+            const bg = computedStyle.background;
+            if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+                ctx.fillStyle = bg.includes('gradient') ? '#f8f9fa' : bg;
+                ctx.fillRect(0, 0, element.offsetWidth, element.offsetHeight);
+            }
+            
+            // Draw text
+            ctx.fillStyle = textStyle.color;
+            ctx.font = `${textStyle.fontWeight} ${textStyle.fontSize} ${textStyle.fontFamily}`;
+            ctx.textAlign = textStyle.textAlign || 'center';
+            ctx.textBaseline = 'middle';
+            
+            const text = textElement.textContent;
+            const x = element.offsetWidth / 2;
+            const y = element.offsetHeight / 2;
+            
+            // Add shadow if enabled
+            if (textStyle.textShadow && textStyle.textShadow !== 'none') {
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+                ctx.shadowBlur = 4;
+                ctx.shadowOffsetX = 2;
+                ctx.shadowOffsetY = 2;
+            }
+            
+            ctx.fillText(text, x, y);
+            
+            // Download
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'arabic-calligraphy.png';
+                a.click();
+                URL.revokeObjectURL(url);
+                showNotification('Image downloaded successfully!', 'success');
+            });
+        }
+
+        // Share calligraphy
+        function shareCalligraphy() {
+            const text = document.getElementById('calligraphyText').textContent;
+            const shareData = {
+                title: 'Arabic Calligraphy',
+                text: text,
+                url: window.location.href
+            };
+            
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                // Fallback - copy URL to clipboard
+                navigator.clipboard.writeText(window.location.href + '?text=' + encodeURIComponent(text));
+                showNotification('Share link copied to clipboard!', 'success');
+            }
+        }
+
+        // Print calligraphy
+        function printCalligraphy() {
+            const printWindow = window.open('', '_blank');
+            const calligraphyHTML = document.getElementById('previewArea').outerHTML;
+            
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>Arabic Calligraphy</title>
+                    <style>
+                        body { margin: 0; padding: 20px; font-family: Arial, sans-serif; }
+                        .calligraphy-preview { 
+                            border: none !important; 
+                            background: white !important;
+                            box-shadow: none !important;
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${calligraphyHTML}
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+            notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                ${message}
+                <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
